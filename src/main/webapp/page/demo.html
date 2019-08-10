@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Test</title>
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport"	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<style type="text/css">
+	#div1{
+		background-color: red;
+	}
+	#div2{
+		background-color: orange;
+	}
+	#div3{
+		background-color: yellow;
+	}
+	#div4{
+		background-color: green;
+	}
+	#div5{
+		background-color: cyan;
+	}
+	#div6{
+		background-color: blue;
+	}
+	#div7{
+		background-color: purple;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+		$(function(){
+			$(".div").css({
+				"height":$(window).height()
+			});
+			$(document).scroll(function(){
+				if($(window).height() - ($("#div2").offset().top-$(window).scrollTop()) == 20){
+					
+				alert("yes");
+				}
+			});
+			
+		});
+		
+</script>
+</head>
+<body>
+	<div id="div1" class="div"></div>
+	<div id="div2" class="div"></div>
+	<div id="div3" class="div"></div>
+	<div id="div4" class="div"</div>
+	<div id="div5" class="div"></div>
+	<div id="div6" class="div"></div>
+	<div id="div7" class="div"></div>
+</body>
+</html>

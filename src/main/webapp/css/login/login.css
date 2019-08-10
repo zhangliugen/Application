@@ -1,0 +1,122 @@
+.tab-ui{
+	height: 50px;
+}
+.tab-ui-class{
+	float:left;
+	height: 50px;
+	line-height:50px;
+	text-align:center;
+	width:50%;
+	
+}
+.current{
+	background-color: #f2f2f2;
+	border-bottom:3px solid #104edc;
+}
+.main-content{
+	clear: both;
+	margin-top:20px;
+}
+.input-ui{
+	display: block;
+	width: 70%;
+	height:50px;
+	margin: 20px auto;
+	border-radius:20px;
+	padding-left:80px;
+	font-size: 18px;
+	border:1px solid #fff;
+	color:#f1f4c4;
+}
+.user-ui{
+	background:url(../../img/user.png) no-repeat;
+	background-size: 50px;
+	background-position: 20px;
+}
+.user-ui::-webkit-input-placeholder{
+	color:#f1f4c4;
+}
+.lock-ui{
+	background:url(../../img/pwd.png) no-repeat left;
+	background-size: 50px;
+	background-position: 20px;
+}
+.lock-ui::-webkit-input-placeholder{
+	color:#f1f4c4;
+}
+.phon-ui{
+	background:url(../../img/phone.png) no-repeat left;
+	background-size: 50px;
+	background-position: 20px;
+	color:#6b5252;
+	border:1px solid #6b5252;
+}
+.phon-ui::-webkit-input-placeholder{
+	color:#6b5252;
+}
+.code-ui{
+	display:inline-block;
+	background:url(../../img/message.png) no-repeat left;
+	background-size: 45px;
+	background-position: 20px;
+	color:#6b5252;
+	margin:0;
+	width: 50%;
+	border-radius:0;
+	border-top-left-radius:20px;
+	border-bottom-left-radius:20px;
+	border:1px solid #6b5252;
+}
+.code-ui::-webkit-input-placeholder{
+	color:#6b5252;
+}
+.send-ui{
+	border-radius:0;
+	border-top-right-radius:20px;
+	border-bottom-right-radius:20px;
+	height:52px;
+	width: 17%;
+	font-size: 14px;
+	text-align:center;
+	color:#f1f4c4;
+	background-color: #0080ff;
+	border:1px solid #6b5252;
+	border-left: none;
+	position: relative;
+	bottom:1px;
+}
+.code-send{
+	text-align: center;
+	margin-bottom: 20px;
+}
+.login-btn-ui{
+	text-align: center;
+}
+.btn-ui{
+	width: 90%;
+	border:none;
+	border-radius: 12px;
+	height:35px;
+	line-height:35px;
+	text-align: center;
+	font-size: 18px;
+	background-color: #0079f2;
+	color:#f1f4c4;
+	margin: 0 auto;
+}
+.reg-for{
+	margin-top: 20px;
+}
+.reg-for a{
+	color:#f1f4c4;
+}
+.register{
+	float: left;
+	position: relative;
+	left:20px;
+}
+.forgetpwd{
+	float: right;
+	position: relative;
+	right:20px;
+}

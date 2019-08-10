@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="USER">
+	<insert id="insert" parameterType="java.util.HashMap">
+		<![CDATA[
+		insert into user
+		(
+			id,
+			uuid,
+			username,
+			password,
+			gender,
+			age,
+			global_id,
+			phone_no,
+			nation,
+			address
+		)
+		values
+		(
+			#{id},
+			#{uuid},
+			#{username},
+			#{password},
+			#{gender},
+			#{age},
+			#{global_id},
+			#{phone_no},
+			#{nation},
+			#{address}
+		)
+		]]>
+	</insert>
+	<select id="selectUsername" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select 
+			count(*) 
+		from 
+			user 
+		where 
+			username = #{username}
+	</select>
+	<select id="selectPhoneNo" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select 
+			count(*) 
+		from 
+			user 
+		where 
+			phone_no = #{phone_no}
+	</select>
+</mapper>

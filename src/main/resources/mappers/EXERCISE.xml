@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="EXERCISE">
+	<select id="selectByDate" resultType="java.util.HashMap">
+		<![CDATA[
+		select * from exercise_info 
+		where 
+			create_time >= #{start}
+		and
+			create_time <= #{end}
+		]]>
+	</select>
+	<select id="selectByDateAndType" resultType="java.util.HashMap">
+		<![CDATA[
+		select * from exercise_info 
+		where 
+			create_time >= #{startTime}
+		and
+			create_time <= #{endTime}
+		and
+			fitness_type = #{fitness_type}
+		]]>
+	</select>
+	<insert id="insert" parameterType="java.util.HashMap">
+		<![CDATA[
+		insert into exercise_info
+		(
+			id,
+			user_name,
+			create_time,
+			fitness_item,
+			time_consuming,
+			isDone,
+			fitness_type
+		)
+		values
+		(
+		#{id},
+		#{user_name},
+		#{create_time},
+		#{fitness_item},
+		#{time_consuming},
+		#{isDone},
+		#{fitness_type}
+		)
+		]]>
+	</insert>
+</mapper>

@@ -1,0 +1,100 @@
+body{
+		margin: 0;
+		padding: 0;
+	}
+table
+  {
+  border-collapse:collapse;
+   width:100%;
+  }
+
+table,th, td
+  {
+  border: 1px solid black;
+  }
+th
+  {
+  background-color:green;
+  color:white;	
+  }
+  td
+  {
+  height:40px;
+  text-align: center;
+  }
+a{
+	text-decoration:none;
+}
+.page{
+	display:none;
+}
+.title{
+		width:100%;
+		background-color: #56A00E;
+		text-align:center;
+		height: 40px;
+		line-height: 40px;
+		font-size: 16px;
+		font-weight: bold;
+		text-shadow:0 1px 1px #335413;
+		color: #fff;
+		padding: 0;
+	}
+.back-bt{
+	position: absolute;
+	left: 0;
+	font-size: 14px;
+	cursor: pointer;
+}
+.date{
+	width:100%;
+	height:40px;
+	line-height:40px;
+	text-align: center;
+}
+.fitness{
+	height:50px;
+	line-height:50px;
+	padding-left:20px;
+	border-bottom:1px dashed #ccc;
+}
+.fitness-isDone{
+	border:none;
+	width:50px;
+	font-size: 16px;
+	color:red;
+	position: absolute;
+	right:5px;
+	margin-top: 15px;
+}
+.fitness-item{
+	display:none;
+}
+.clock{
+	height:100px;
+	font-size:50px;
+	text-align: center;
+}
+.clock-but{
+	height: 100px;
+}
+.button{
+	font-size: 20px;
+	border:1px solid #000;
+	width: 100px;
+	height: 70px;
+	border-radius:50%;
+	line-height: 70px;
+	text-align: center;
+	clear: right;
+}
+#count-reset{
+	float:left;
+}
+#start-stop{
+	float:right;
+}
+.count{
+	width: 100%;
+	height:35px;	
+}

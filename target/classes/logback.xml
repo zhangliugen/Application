@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="60 seconds" debug="true">
+
+	<!-- 使用maven profile替换logHome -->
+	<property name="appName" value="Application" scope="context" />
+	<property name="logHome" value="/home/logs/${appName}" scope="context" />
+
+	<!-- <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" /> -->
+
+	<!--这里指定logger name 是为jmx设置日志级别做铺垫 -->
+	<jmxConfigurator />
+	<!-- 控制台输出日志 -->
+	 <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>[%d] %X{TRANS_SEQ} %X{CUST_NUM} %X{TRANS_CODE} %X{TRANS_NAME} %-5level %c:%L - %msg%n</pattern>
+		</layout>
+	</appender> 
+
+	<appender name="TRANS_LOG" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<discriminator>
+			<Key>appId</Key>
+			<DefaultValue>normal</DefaultValue>
+		</discriminator>
+		<sift>
+			<appender name="TRANS_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<file>${logHome}/TRANS_LOG/${appId}.log</file>
+				<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+					<fileNamePattern>${logHome}/%d{yyyy-MM-dd}/TRANS_LOG/${appId}.%i.log</fileNamePattern>
+					<timeBasedFileNamingAndTriggeringPolicy
+						class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+						<maxFileSize>600MB</maxFileSize>
+					</timeBasedFileNamingAndTriggeringPolicy>
+				</rollingPolicy>
+				<encoder>
+					<pattern>[%d] %X{TRANS_SEQ} %X{CUST_NUM} %X{TRANS_CODE} %X{TRANS_NAME} %-5level %c:%L - %msg%n</pattern>
+				</encoder>
+			</appender>
+		</sift>
+	</appender>
+	
+	<!-- 错误及警告日志 -->
+	<appender name="ERROR_WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>WARN</level>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${logHome}/%d{yyyy-MM-dd}/ERROR_WARN/error_warn.%i.log</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>600MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+            <!--格式化输出：%d表示日期，%thread表示线程名，%L行号；%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符--> 
+            <Pattern>[%d] %X{TRANS_SEQ} %X{CUST_NUM} %X{TRANS_CODE} %X{TRANS_NAME} %-5level %c:%L - %msg%n</Pattern>
+            <!-- <immediateFlush>false</immediateFlush>
+		   	<includeCallerData>true</includeCallerData> -->
+		</encoder>
+	</appender>
+    
+	<!-- 普通代码 -->
+	<logger name="vip.zicp.mitumao">
+		<level value="INFO" />
+	</logger>
+	<!-- mybatis变量需要设置 jdbcType 才能显示更直观的错误,如#{H_SESS_ID,jdbcType=VARCHAR} -->
+	<logger name="java.sql">
+		<level value="ERROR" />
+	</logger>
+	<logger name="org.mybatis">
+		<level value="ERROR" />
+	</logger>
+	<logger name="org.springframework" level="INFO"></logger>
+	
+	<!-- 以最低的日志级别为准 -->
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="ERROR_WARN" />
+		<appender-ref ref="TRANS_LOG" />
+	</root> 
+
+</configuration>
