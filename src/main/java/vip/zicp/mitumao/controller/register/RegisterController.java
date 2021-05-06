@@ -101,7 +101,8 @@ public class RegisterController {
 	@ResponseBody
 	public Map sendMessage(String phone) {
 		Map map = new HashMap();
-		DefaultProfile profile = DefaultProfile.getProfile("default", "LTAIem4J1821Mm5L", "1bIqj0jZpLU2MIdNwdt0cgO7okiMs6");
+		//aliyun AccessKey ID 阿里云提示在GitHub上泄露，故替换了
+		DefaultProfile profile = DefaultProfile.getProfile("default", "aliyun AccessKey ID", "1bIqj0jZpLU2MIdNwdt0cgO7okiMs6");
         IAcsClient client = new DefaultAcsClient(profile);
         CommonRequest request = new CommonRequest();
         request.setMethod(MethodType.POST);
